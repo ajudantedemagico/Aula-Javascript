@@ -1,13 +1,17 @@
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     padding: 20px;
+    background-image: url(florgliter.gif);
+    
 }
 
 .container {
     max-width: 600px;
     margin: 0 auto;
-    background: rgb(245, 215, 215);
+    background: rgba(245, 215, 215, 0.788);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
