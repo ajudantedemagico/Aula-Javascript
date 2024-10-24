@@ -9,10 +9,10 @@ const produtos = [
 let carrinho = [];
 
 function exibirProdutos() {
-    const productList = document.getElementById('productList');
-    productList.innerHTML = '';
+    const ListaProduto = document.getElementById('ListaProduto');
+    ListaProduto.innerHTML = '';
     produtos.forEach((produto, index) => {
-        productList.innerHTML += `
+        ListaProduto.innerHTML += `
             <li>
                 ${produto.nome} - R$ ${produto.preco} (Estoque: ${produto.quantidade})
                 <button onclick="adicionarAoCarrinho(${index})">Adicionar</button>
@@ -34,10 +34,10 @@ function adicionarAoCarrinho(index) {
 }
 
 function exibirCarrinho() {
-    const cartList = document.getElementById('cartList');
-    cartList.innerHTML = '';
+    const CarrinhoLista = document.getElementById('CarrinhoLista');
+    CarrinhoLista.innerHTML = '';
     carrinho.forEach((produto, index) => {
-        cartList.innerHTML += `
+        CarrinhoLista.innerHTML += `
             <li>
                 ${produto.nome} - R$ ${produto.preco}
                 <button class="remove" onclick="removerDoCarrinho(${index})">Remover</button>
@@ -61,19 +61,19 @@ function atualizarTotal() {
     document.getElementById('total').innerText = `Total: R$ ${total}`;
 }
 
-document.getElementById('sortBtn').onclick = function() {
+document.getElementById('BotaoOrdenar').onclick = function() {
     carrinho.sort((a, b) => a.preco - b.preco);
     exibirCarrinho();
 };
 
-document.getElementById('searchBtn').onclick = function() {
-    const searchTerm = document.getElementById('search').value.toLowerCase();
+document.getElementById('BotaoBusca').onclick = function() {
+    const searchTerm = document.getElementById('Busca').value.toLowerCase();
     const resultados = produtos.filter(produto => produto.nome.toLowerCase().includes(searchTerm));
     
-    const productList = document.getElementById('productList');
-    productList.innerHTML = '';
+    const ListaProduto = document.getElementById('ListaProduto');
+    ListaProduto.innerHTML = '';
     resultados.forEach((produto, index) => {
-        productList.innerHTML += `
+        ListaProduto.innerHTML += `
             <li>
                 ${produto.nome} - R$ ${produto.preco} (Estoque: ${produto.quantidade})
                 <button onclick="adicionarAoCarrinho(${index})">Adicionar</button>
